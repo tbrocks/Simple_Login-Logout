@@ -1,1 +1,10 @@
 This is a simple Registration + Login/Logout in PHP. Change the pdo.php accordingly to connect to the database.
+Registration/index.php
+First you have to registrate or Login to get to the main page. I programmed the Registration with a simple form in html, to input spaces and one submit button. For the Backend i used pdo to connect to the database. To ensure users are giving the right inputs i used simple if statements. To protect the webpage from sql injection i didnt pass the log in variables immediately to the sql but instead put place holders for the variables so they get replaced by the actual Strings. By the way these placeholders do not have to have the exact same name as the variables but you keep your live a little bit saner if you name them the same.
+That is all there is to the Registration form it is really simple.
+
+login.php
+in the login.php i also used a simple form for the html part. For the php part i again used placeholders to prevent sql injection. To check if the password and username is right i use simple sql statements. The important part in this login.php is the session_start() command to create global variables. This is very important to pass the login information to the next page. Otherwise users could access the autos.php just by changing the URL.
+
+autos.php
+Users should only access this side when they are logged in so we created a global variable which is granted to the user when they logged in. In autos.php we check if they have the global variable if they have it they can access the page else the webpage dies. The purpose of the autos.php is that you can pass information from your webpage into an sql table, like we did in the registration form. The special part is that if you make a new auto it shows the row of the sql table on the webpage. It is very important to protect the webpage from html injections when giving out the sql table for example someone could make a car named "<b>Audi" which would print Audi in bold, that is not want we want. So i used htmlentities to prevent that from happening.
