@@ -51,11 +51,11 @@ body {
 $stmt = $pdo->query("SELECT mileage, year, make FROM autos");
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
   echo"<tr><td>";
-  echo($row['mileage']);
+  echo(htmlentities($row['mileage']));
   echo("</td><td>");
-  echo($row['year']);
+  echo(htmlentities($row['year']));
   echo("</td><td>");
-  printf($row['make']);
+  echo(htmlentities($row['make']));
   echo("</td></tr>\n");
 
 }
